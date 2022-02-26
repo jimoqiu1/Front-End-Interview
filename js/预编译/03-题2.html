@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // a = 1
+    // function test() {
+    //   console.log(a)   // undefined
+    //   a = 2
+    //   console.log(a)  // 2
+    //   var a = 3
+    //   console.log(a)  // 3
+    // }
+    // test()
+    // var a
+    /**
+     * GO: {
+     *    a: undefined -> 1
+     *    test: function() {}
+     * }
+     * 
+     * AO: {
+     *    a: undefined -> 2 -> 3  (注意var 变量提升)
+     * }
+     * 
+    */
+
+    // a = 1
+    // function test(e) {
+    //   function e() {}
+    //   arguments[0] = 2
+    //   console.log(e)   // 2
+    //   if(a) {
+    //     var b = 3
+    //   }
+    //   var c
+    //   a = 4
+    //   var a 
+    //   console.log(b)  // undefined
+    //   f = 5
+    //   console.log(c)  // undefined
+    //   console.log(a)  // 4
+    // }
+    // var a 
+    // test(1)
+
+    var a = false + 1
+    console.log(a)  // 1 隐式转换 false -> 0
+
+    var b = false == 0
+    console.log(b);  // true
+
+    var c = false === 0
+    console.log(c);  // false
+
+    if(typeof(d) && (-true) + (+undefined) + '') {
+      console.log('pass')
+    } else {
+      console.log('not pass');
+    }   // pass
+
+    // 注意没被定义的变量也没赋值，会报错。但是加上typeof,会是undefined
+    // true和false做运算会被转成 1 和 0，但是undefined做运算会被转成NaN，NaN做运算都是NaN
+    // !! 将表达式转换成bool值
+
+    if(NaN) {
+      console.log(111);
+    } else {
+      console.log(222);
+    }  // 222, NaN会被转换成false
+
+    if(1 + 5 * '3' === 16) {
+      console.log('pass')
+    } else {
+      console.log('not pass');
+    }  // pass '3' 隐式转换成了3
+
+    console.log(!!' ' + !!'' - !!false || '未通过');   // 1
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /*  就是某个元素虽然是写在了后面，但可以通过负边距让它在浏览器显示的时候是在前面的  */
+    .container {
+      width: 500px;
+      height: 600px;
+      border: 1px solid #ccc;
+    }
+    .div1 {
+      width: 200px;
+      height: 200px;
+      float: left;
+      /* margin-left: -50px; */
+      background-color: antiquewhite;
+    }
+    .div2 {
+      width: 200px;
+      height: 200px;
+      float: left;
+      /* margin-left: -50px; */
+      background-color: aqua;
+    }
+    .div3 {
+      width: 200px;
+      height: 200px;
+      float: left;
+      margin-left: -100px;
+      background-color: aquamarine;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+  </div>
+</body>
+</html>

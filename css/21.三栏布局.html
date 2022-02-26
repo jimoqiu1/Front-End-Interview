@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 方法1：position + margin-left + margin-right */
+    /* .container {
+      position: relative;
+      height: 500px;
+    }
+    .left {
+      position: absolute;
+      width: 200px;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: antiquewhite;
+    }
+    .right {
+      position: absolute;
+      width: 200px;
+      height: 100%;
+      top: 0;
+      right: 0;
+      background-color:aqua;
+    }
+    .main {
+      margin-left: 200px;
+      margin-right: 200px;
+      height: 100%;
+      background-color: blueviolet;
+    } */
+
+    /* 方法2 float+margin,为什么中间的盒子要放到最后？？因为放中间标准流的边界是按margin来计算的，所以最后的一个盒子放不下，要放到下一行去 */
+    /* html, body {
+      padding: 0;
+      margin: 0;
+    }
+    .container {
+      height: 500px;
+    }
+    .left {
+      float: left;
+      width: 200px;
+      height: 100%;
+      background-color:blue;
+    }
+    .right {
+      float: right;
+      width: 200px;
+      height: 100%;
+      background-color:aqua;
+    }
+    .main {
+      margin-left: 200px;
+      margin-right: 200px;
+      height: 100%;
+      background-color: aquamarine;
+    } */
+    /* 
+      方法3：flex布局
+      方法4：圣杯布局
+      方法5：双飞翼布局
+    */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left"></div>
+    <!-- <div class="main">dddd</div> -->
+    <div class="right"></div>
+    <div class="main"></div>
+  </div>
+</body>
+</html>

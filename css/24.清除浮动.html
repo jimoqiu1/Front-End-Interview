@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 
+      方法1：可以在浮动盒子的后面添加一个空的div盒子，再用clear：both进行清除
+      方法2：可以给浮动盒子的父盒子添加高度
+      方法3：给父盒子形成BFC，即添加overflow：hidden
+      方法4：伪类，给父元素添加after伪类
+     */
+    .father {
+      width: 300px;
+      border: 5px solid #ccc;
+      /* overflow: hidden; */
+      zoom: 1;
+    }
+    .son {
+      height: 200px;
+      width: 100%;
+      float: left;
+      background-color: aqua;
+    }
+    .father:after {
+      content: '';
+      clear: both;
+      display: block;
+      height: 0;
+      /* overflow: hidden; */
+      visibility: hidden;
+    }
+    /* .empty {
+      clear: both;
+      height: 0;
+
+    } */
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="son"></div>
+    <!-- <div class="empty"></div> -->
+  </div>
+</body>
+</html>

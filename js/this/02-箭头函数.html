@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var obj = {
+    //   name: 'wang',
+    //   year: 1990,
+    //   getAge: function() {
+    //     var fn = () => new Date().getFullYear() - this.year
+    //     return fn()
+    //   }
+    // }
+    // let age = obj.getAge()
+    // console.log(age);
+
+    // "use strict"
+    // const test = () => {
+    //   console.log(this);   // window
+    // }
+    // const test2 = function () {
+    //   console.log(this);   // undefined
+    // }
+    // test()
+    // test2()
+
+    var obj = {
+      a: 1
+    }
+    var a = 2
+
+    const test = () => {
+      console.log(this.a);   // 2
+    }
+
+    test()
+    // 箭头函数是忽略任何形式的this指向的改变
+    test.call(obj)   // 2
+    test.apply(obj)  // 2
+    let test1 = test.bind(obj)  // 2
+    test1()
+
+    new test()
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>渲染一万条数据</h1>
+  <a href="https://baidu.com" target="_blank">百度一下</a>
+  <ul class="content"></ul>
+  <script>
+    console.log('-----start------');
+    const total = 10000,
+      // 每次处理数据
+      each = 20,
+      // 需要处理次数
+      needTimes = Math.ceil(total / each),
+      // 父容器
+      content = document.querySelector('.content')
+    // 当前处理次数
+    let currentTime = 0
+    // 处理元素插入
+    function add() {
+      setTimeout(() => {
+        console.log('----insert----');
+        const fragment = document.createDocumentFragment()
+        for (let i = 0; i < each; i++) {
+          const li = document.createElement('li')
+          li.innerText = Math.floor(i + currentTime * each)
+          fragment.appendChild(li)
+        }
+        content.appendChild(fragment)
+        currentTime++;
+        if (currentTime < needTimes) {
+          add();
+        }
+      }, 1000 / 60)
+    }
+    add();
+    console.log('-----end------')
+  </script>
+</body>
+
+</html>

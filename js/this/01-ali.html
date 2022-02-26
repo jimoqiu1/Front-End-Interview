@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var name = 222
+    var a = {
+      name: 111,
+      say: function () {
+        console.log(this.name)
+      }
+    }
+
+    var fun = a.say
+    fun()   // 222
+    a.say() // 111
+
+    var b = {
+      name: 333,
+      say: function (fun) {
+        fun() 
+      }
+    }
+    b.say(a.say)  // 将a.say函数作为参数传入b.say函数，再进行调用，我们可以看到是fun()直接进行调用，this指向window   2222
+    b.say = a.say
+    b.say()  // 将a.say 函数做了一个拷贝，复制到b.say，调用的时候是b进行调用的，所以this指向的是b   1111
+  </script>
+</body>
+</html>

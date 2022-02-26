@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 方式一：浮动+定位+margin（经典） */
+  /* .header, .footer {
+    background: rgba(29, 27, 27, 0.726);
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    clear: both;
+  }
+  .container {
+    padding: 0 200px;
+    overflow: hidden;
+  }
+  .container div {
+    float: left;
+    height: 200px;
+    position: relative;
+  }
+  .left {
+    width: 200px;
+    margin-left: -100%;   意思就是向左移动整个屏幕的距离
+    left: -200px;
+    background-color: aqua;
+  }
+  .right {
+    width: 200px;
+    margin-left: -200px;
+    right: -200px;
+    background-color: bisque;
+  }
+  .center {
+    width: 100%;
+    background-color: skyblue;
+  } */
+
+  /* 方法二：flex */
+  .header, .footer {
+    background: rgba(29, 27, 27, 0.726);
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+  }
+  .container {
+    display: flex;
+    height: 500px;
+  }
+  .left {
+    width: 200px;
+    background-color: antiquewhite;
+  }
+  .right {
+    width: 200px;
+    background-color:aqua;
+  }
+  .center {
+    flex: 1;
+    background-color: skyblue;
+  }
+  </style>
+</head>
+<body>
+  <div class="header">header</div>
+  <div class="container">
+    <div class="left">left</div>
+    <div class="center">center</div>
+    <div class="right">right</div>
+  </div>
+  <div class="footer">footer</div>
+</body>
+</html>

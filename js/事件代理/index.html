@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #000;
+    }
+    .child {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin-left: 300px;
+    }
+    .child-1 {}
+    .child-2 {
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="child child-1"></div>
+    <div class="child child-2"></div>
+  </div>
+  <script>
+    var father = document.getElementsByClassName('father')[0],
+    child_1 = document.getElementsByClassName('child-1')[0],
+    child_2 = document.getElementsByClassName('child-2')[0]
+
+    father.onclick = function (e) {
+      var e = e || window.event,    // IE8 event 是挂载到了window下面
+        tar = e.target || e.srcElement,
+        tagName = tar.tagName.toLowerCase()
+        className = tar.className
+
+      console.log(e);
+
+      // console.log('father');
+    }
+    // child_1.onclick = function () {
+    //   console.log('child_1');
+    // }
+    // child_2.onclick = function () {
+    //   console.log('child_2');
+    // }
+  </script>
+</body>
+</html>

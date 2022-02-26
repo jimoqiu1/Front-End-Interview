@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Father {
+      constructor() {
+        this.eat = this.eat.bind(this)
+      }
+      get fruit() {
+        return 'apple'
+      }
+      eat() {
+        console.log('i eat an ' + this.fruit)
+      }
+    }
+
+    class Son extends Father {
+      get fruit() {
+        return 'orange'
+      }
+    }
+
+    let son = new Son()
+    let father = new Father()
+    // father.eat()
+    // son.eat()
+    // 需求son吃的水果是father的
+    son.eat = father.eat
+    son.eat()  // i eat an apple
+  </script>
+</body>
+</html>

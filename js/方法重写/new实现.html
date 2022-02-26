@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+      this.sayName = function() {
+        console.log(this.name)
+      }
+    }
+
+    // let person = new Person('wang', 21)
+
+    let person = myNew(Person, 'wang', 21)
+
+    console.log(person.name);
+    console.log(person.__proto__ === Person.prototype);   // true
+    person.sayName()
+
+    /**
+     * 
+     * new 的过程：
+     * 1、在内存中创建一个新的对象
+     * 2、将这个对象的__proto__属性赋值为构造函数的prototype属性
+     * 3、this指向这个新的对象
+     * 4、执行构造函数内部的代码，如给这个对象添加属性和方法
+     * 5、返回这个对象
+     */
+
+    //  这里我们用一个函数模拟
+     function myNew() {
+      //  创建一个对象
+        let _this = {},
+          constructor = [].shift.call(arguments)
+
+      // 将新对象的__proto__属性赋值为构造函数的prototype，可以直接用Object.create(constructor.prototype)
+       _this.__proto__ = constructor.prototype
+      // 执行构造函数
+      let result = constructor.apply(_this, arguments)
+
+        // 返回对象
+      return result instanceof Object ? result : _this
+
+     }
+  </script>
+</body>
+</html>

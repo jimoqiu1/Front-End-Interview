@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* div {
+      position: relative;
+      width: 249px;
+      height: 35px;
+      border: 1px solid #000;
+    }
+    div::after {
+      content: '';
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      width: 8px;
+      height: 8px;
+      border-right: 1px solid #000;
+      border-bottom: 1px solid #000;
+      transform: rotate(45deg);
+      transition: all 0.5s;
+    }
+    div:hover::after {
+      transform: rotate(225deg);
+    } */
+
+    div {
+      overflow: hidden;
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin: 10px;
+      float: left;
+    }
+    div::before {
+      content: '杭电';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: skyblue;
+      transform: rotate(180deg);
+      transform-origin: left bottom;
+      transition: all 1s;
+    }
+    div:hover::before {
+      transform: rotate(0deg);
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+
+</html>

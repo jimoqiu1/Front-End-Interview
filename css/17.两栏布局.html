@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 方法1：左float，右margin-left右边自适应 */
+    /* div {
+      height: 500px;
+    }
+    .aside {
+      width: 300px;
+      float: left;
+      background-color: antiquewhite;
+    }
+    .main {
+      margin-left: 300px;
+      background-color: aquamarine;
+    } */
+    
+    /* 左自适应 */
+    /* div {
+      height: 500px;
+    }
+    .aside {
+      width: 300px;
+      float: right;
+      background-color: antiquewhite;
+    }
+    .main {
+      background-color: aqua;
+      margin-right: 300px;
+    } */
+    /* 方法2 float+BFC */
+    /* div {
+      height: 500px;
+    }
+    .aside {
+      width: 300px;
+      float: left;
+      background-color: antiquewhite;
+    }
+    .main {
+      overflow: hidden;
+      background-color: aqua;
+    } */
+
+    /* 方法3 float+margin负值 */
+    /* div {
+      height: 500px;
+    }
+    .aside {
+      width: 100%;
+      float: left;
+      margin-right: -200px;
+      background-color: aquamarine;
+    }
+    .main {
+      float: left;
+      width: 200px;
+      background-color: beige;
+    } */
+    /* 圣杯布局 */
+    div {
+      height: 500px;
+    }
+    .main {
+      width: 100%;
+      float: left;
+      background-color: aqua;
+    }
+    .aside {
+      float: left;
+      width: 200px;
+      margin-left: -200px;
+      background-color: antiquewhite;
+    }
+
+    /* 方法4：flex */
+    /* body {
+      display: flex;
+    }
+    div {
+      height: 500px;
+    }
+    .aside {
+      width: 200px;
+      background-color: aqua;
+    }
+    .main {
+      flex: 1;
+      background-color:rgb(238, 114, 56);
+    } */
+  </style>
+</head>
+<body>
+  <div class="main"></div>
+  <div class="aside"></div>
+</body>
+</html>

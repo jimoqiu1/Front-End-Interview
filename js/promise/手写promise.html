@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./手写Promise.js"></script>
+  <script>
+    const test1 = new MyPromise((resolve, reject) => {
+      resolve(1)
+      // setTimeout(() => {
+      //   resolve('success')
+      // }, 1000)
+      // reject('fail')
+    })
+    // test1.then(1).then(res => console.log(res))
+    // console.log(test1)
+
+    test1.then(res => 2 * res, err => 3 * err).then(res => console.log(res), err => console.log('失败', err))
+
+    const test2 = new Promise((resolve, reject) => {
+      resolve(1)
+    })
+
+    test2.then(res => {
+      return new MyPromise((resolve, reject) => {
+        resolve(3*res)
+      })
+    }).then(res => console.log(res), err => console.log('失败', err))
+  </script>
+</body>
+</html>

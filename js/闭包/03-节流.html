@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">点击</button>
+  <script>
+    let btn = document.getElementById('btn')
+    function throttle(func, delay) {
+      let timer = null
+      return function () {
+        if(!timer) {
+          timer = setTimeout(function() {
+            func.apply(this, arguments)
+            timer = null
+          }, delay)
+        }
+      }
+    }
+    function handler() {
+      console.log(Math.random());
+    }
+    let throttleFunc = throttle(handler, 1000)
+    btn.addEventListener('click', function(e) {
+      throttleFunc()
+    })
+  </script>
+</body>
+</html>

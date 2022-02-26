@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function fn(a, c) {
+      console.log(a)
+      var a = 123
+      console.log(a)
+      console.log(c)
+
+      function a() {}
+      if (false) {
+        var d = 678
+      }
+      console.log(d)
+      console.log(b)
+      var b = function () {}
+      console.log(b)
+
+      function c() {}
+      console.log(c)
+    }
+    fn(1, 2)
+    // 预编译会做以下几件事，然后再进行解释执行
+    // 1. 创建ao对象 AO{}
+    // 2. 找形参和变量声明 将变量和形参名 当做 ao对象的属性名 值为undefined
+    // 3. 实参形参相统一 
+    // 4. 在函数体里面找函数声明 值赋予函数体
+
+    // AO{
+    //   a:undefined 1 function a() { }
+    //   c:undefined 2  function c() { }
+    //   d:undefined 
+    //   b:undefined
+    // }
+  </script>
+</body>
+
+</html>

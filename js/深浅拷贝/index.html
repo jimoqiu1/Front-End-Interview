@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var person = {
+    //   name: 'wang'
+    // }
+    // 赋值
+    // var person1 = person
+    // person1.name = 'duan'
+    // console.log(person.name);
+
+    var person = {
+      name: 'wang',
+      hobbies: ['eat', 'sleep']
+    }
+    var person1 = {...person}
+    person1.name = 'duan'
+    console.log(person);
+    console.log(person1);
+    // 浅拷贝
+    // function shallowClone(source) {
+    //   var newObj = {}
+    //   for(var i in source) {
+    //     if(source.hasOwnProperty(i)) {
+    //       newObj[i] = source[i]
+    //     }
+    //   }
+    //   return newObj
+    // }
+    // var person1 = shallowClone(person)
+    // person1.name = 'duan'
+    // console.log(person.name);   // wang
+    // console.log(person1.name);  // duan
+
+    // person1.hobbies[1] = 'run'
+    // console.log(person.hobbies[1]);   // run
+    // console.log(person1.hobbies[1]);  // run
+  </script>
+</body>
+</html>

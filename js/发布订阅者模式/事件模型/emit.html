@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class EventEmitter {
+      constructor() {
+        this.events = {}
+      }
+
+      on(event, handler) {
+        (this.events[event] || (this.events[event] = [])).push(handler)
+      }
+
+      off(type, handler) {
+        if(arguments.length === 0) {
+          this.events = {}
+        } else if(arguments.length === 1) {
+          this.events[type] = []
+        } else if(arguments.length === 2) {
+          // 移除type事件的handler函数
+          let _event = this.events[type]
+          if(!_event) return 
+          for(let i = _event.length; i >= 0; i--) {
+            if(_event[i] === handler) {
+              _event.splice(i, 1)
+            }
+          }
+        }
+      }
+
+      emit(type, ...args) {
+        let _event = this.events[type]
+        if(!_event) return
+        for(let i = 0; i <_event.length; i++) {
+          _event[i](...args)
+        }
+      }
+
+      once(type, handler) {
+        let warapFn = (...args) => {
+          handler(...args)
+          this.off(type, warapFn)
+        }
+        this.on(type, warapFn)
+      }
+    }
+
+    const emitter = new EventEmitter()
+    function handler() {
+      console.log('点击事件');
+    }
+    function handler2() {
+      console.log('mouseEnter事件');
+    }
+    emitter.on('click', handler)
+    emitter.on('click', () => {console.log('第1个click事件');})
+    emitter.on('keyup', () => {console.log('第1个keyup事件');})
+
+    // emitter.emit('click')
+
+    emitter.off('click', handler)
+
+    emitter.once('mounceEnter', handler2)
+    emitter.once('mounceEnter', handler2)
+
+    emitter.emit('mounceEnter')
+
+    // emitter.emit('click')
+  </script>
+</body>
+</html>

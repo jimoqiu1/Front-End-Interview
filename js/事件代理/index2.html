@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    var oListWrapper = document.createElement('ul'),
+    oApp = document.getElementById('app')
+
+    for(let i = 0; i < 10; i++) {
+      var oLi = document.createElement('li')
+      oLi.innerText = '列表第' + (i+1) + '项'
+      oListWrapper.appendChild(oLi)
+    }
+    oApp.appendChild(oListWrapper)
+
+    var oItems = document.getElementsByTagName('li')
+    oListWrapper.onclick = function(e) {
+      var e = e || window.event,    // IE8 event 是挂载到了window下面
+        tar = e.target || e.srcElement,
+        tagName = tar.tagName.toLowerCase()
+        className = tar.className
+
+      if(tagName === 'li') {
+        console.log(tar.innerText)
+        var index = [].indexOf.call(oItems, tar)
+        console.log(index)
+      }
+    }
+
+  </script>
+</body>
+</html>

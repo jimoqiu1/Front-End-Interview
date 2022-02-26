@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // A instanceof B 是用来判断A的原型链上也就是能不能通过__proto__属性去找到Person 的原型
+    class Person {
+      constructor(name, age) {
+        this.name = name
+        this.age = age
+      }
+    }
+    let person = new Person('wang', 21)
+    console.log(person instanceof Person)
+
+    let res = myInstanceOf(person, Person)
+    console.log(res)
+
+    function myInstanceOf(target, constr) {
+      let prototype = constr.prototype
+      target = target.__proto__
+      
+      while(true) {
+        if(target === null) {
+          return false
+        }
+        if(target === prototype) {
+          return true
+        }
+        target = target.__proto__
+      }
+    }
+  </script>
+</body>
+</html>

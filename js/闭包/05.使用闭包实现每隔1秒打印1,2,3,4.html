@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 块级作用域，注意setTimeout是一个异步函数，时间应该是1000*i
+    // for(let i = 0; i < 5; i++) {
+    //   setTimeout(function() {
+    //     console.log(i);
+    //   }, 1000 * i)
+    // }
+
+    // 使用闭包
+    for(let i = 0; i < 5; i++) {
+      (function(i) {
+        setTimeout(function() {
+          console.log(i);
+        }, 1000 * i)
+      })(i)
+    }
+  </script>
+</body>
+</html>

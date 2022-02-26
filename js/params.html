@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>11212121</div>
+  <script>
+    function param2Obj(url) {
+      const search = decodeURIComponent(url.split('?')[1]).replace(/\+/g, ' ')
+      if (!search) {
+        return {}
+      }
+      const obj = {}
+      const searchArr = search.split('&')
+      searchArr.forEach(v => {
+        const index = v.indexOf('=')
+        if (index !== -1) {
+          const name = v.substring(0, index)
+          const val = v.substring(index + 1, v.length)
+          obj[name] = val
+        }
+      })
+      return obj
+    }
+    console.log(window.location.href)
+    let params = param2Obj(window.location.href)
+    if(!params || !params.tempToken) {
+
+    }
+    console.log(params);
+  </script>
+</body>
+
+</html>
